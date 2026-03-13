@@ -13,7 +13,7 @@
     <div class="header-actions">
         <div id="loggedInHeader" style="display: none;">
             <div class="userBox">
-                Hi, <span id="userNameDisplay">User</span>
+                <span id="userNameDisplay">Hi, User</span>
                 <button onclick="logout()" class="logout-btn">Logout</button>
             </div>
             <div class="balanceBox">Coins: <span id="coinBalance">0</span></div>
@@ -21,7 +21,7 @@
 
         <div id="loggedOutHeader">
             <div id="g_id_onload"
-                 data-client_id=''736271030289-cju2otol90qc96h6cflik6timp1g87ui.apps.googleusercontent.com''
+                 data-client_id="736271030289-cju2otol90qc96h6cflik6timp1g87ui.apps.googleusercontent.com"
                  data-context="signin"
                  data-ux_mode="popup"
                  data-callback="handleCredentialResponse"
@@ -33,7 +33,9 @@
         <a href="pages/shop.html">
             <button class="recharge-btn">⚡ Recharge</button>
         </a>
-    </div> <h2>Caller Dashboard</h2>
+    </div> 
+
+    <h2>Caller Dashboard</h2>
 
     <div class="input-group">
         <label>Display Number</label>
@@ -68,7 +70,7 @@
     </div>
 </div>
 
-<div id="callOverlay" class="call-overlay">
+<div id="callOverlay" class="call-overlay" style="display: none;">
     <div class="call-info">
         <h2 id="callingStatus">Calling...</h2>
         <p id="callingNumber"></p>
@@ -83,6 +85,4 @@
 
 <script src="script.js"></script>
 </body>
-
 </html>
-
