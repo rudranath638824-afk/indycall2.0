@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recharge Plans - Vikram Website</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header-actions">
+        <a href="../index.html">
+            <button class="recharge-btn">⬅ Back to Dashboard</button>
+        </a>
+    </div>
+
+    <h2 class="shop-title">Select a Recharge Plan</h2>
+    <p class="shop-subtitle">Contact admin on WhatsApp to activate your plan instantly.</p>
+
+    <div class="plans-container">
+        <div class="plan-card">
+            <h3>Basic</h3>
+            <div class="price">₹500</div>
+            <ul class="features">
+                <li>500 Coins</li>
+                <li>5 Calls Approx.</li>
+                <li>Standard Support</li>
+            </ul>
+            <button class="buy-btn" onclick="openPayment('Basic - ₹500')">Order on WhatsApp</button>
+        </div>
+
+        <div class="plan-card featured">
+            <div class="badge">Most Popular</div>
+            <h3>Pro</h3>
+            <div class="price">₹1500</div>
+            <ul class="features">
+                <li>1800 Coins</li>
+                <li>18 Calls Approx.</li>
+                <li>Priority Support</li>
+            </ul>
+            <button class="buy-btn" onclick="openPayment('Pro - ₹1500')">Order on WhatsApp</button>
+        </div>
+
+        <div class="plan-card">
+            <h3>Unlimited</h3>
+            <div class="price">₹5000</div>
+            <ul class="features">
+                <li>Unlimited Coins</li>
+                <li>Unlimited Calls</li>
+                <li>24/7 VIP Support</li>
+            </ul>
+            <button class="buy-btn" onclick="openPayment('Unlimited - ₹5000')">Order on WhatsApp</button>
+        </div>
+    </div>
+
+    <div class="support-section">
+        <p>Need a custom plan?</p>
+        <a href="https://wa.me/6283186907928" class="support-wa">💬 Chat with Admin</a>
+    </div>
+</div>
+
+<script>
+    function openPayment(planName) {
+        const phone = "6283186907928";
+        const message = encodeURIComponent("Hello! I want to purchase the " + planName + " plan for my Caller Dashboard. Please guide me with the payment steps.");
+        window.open("https://wa.me/" + phone + "?text=" + message, "_blank");
+    }
+</script>
+
+</body>
+</html>
