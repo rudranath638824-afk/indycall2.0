@@ -4,6 +4,18 @@ let activeInput = "targetNumber";
 
 // --- STARTUP LOGIC ---
 window.onload = () => {
+    // Initialize Google OAuth programmatically to prevent "Missing client_id" errors
+    google.accounts.id.initialize({
+        client_id: "736271030289-cju2otol90qc96h6cflik6timp1g87ui.apps.googleusercontent.com",
+        callback: handleCredentialResponse
+    });
+
+    // Render the button automatically into the div
+    google.accounts.id.renderButton(
+        document.querySelector(".g_id_signin"),
+        { theme: "outline", size: "large" } 
+    );
+
     updateUI();
     loadCoins();
     loadHistory();
@@ -18,12 +30,10 @@ function updateUI() {
     const loggedOutDiv = document.getElementById("loggedOutHeader");
 
     if (isLogged) {
-        // Hide Login Button, Show Logout/User info
         if (loggedOutDiv) loggedOutDiv.style.display = "none";
         if (loggedInDiv) loggedInDiv.style.display = "block";
         document.getElementById("userNameDisplay").innerText = "Hi, " + name;
     } else {
-        // Show Login Button, Hide Logout/User info
         if (loggedOutDiv) loggedOutDiv.style.display = "block";
         if (loggedInDiv) loggedInDiv.style.display = "none";
     }
@@ -53,6 +63,8 @@ function decodeJwtResponse(token) {
 function logout() {
     localStorage.removeItem("userLogged");
     localStorage.removeItem("userName");
+    // Also sign out from Google session
+    google.accounts.id.disableAutoSelect();
     window.location.reload(); 
 }
 
