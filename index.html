@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caller Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-actions">
+        <div id="loggedInHeader" style="display: none;">
+            <div class="userBox">
+                Hi, <span id="userNameDisplay">User</span>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </div>
+            <div class="balanceBox">Coins: <span id="coinBalance">0</span></div>
+        </div>
+
+        <div id="loggedOutHeader">
+            <div id="g_id_onload"
+                 data-client_id="394831188693-5j5i2pu6p1mgrq60ukoe9p6jn5vg7gek.apps.googleusercontent.com"
+                 data-context="signin"
+                 data-ux_mode="popup"
+                 data-callback="handleCredentialResponse"
+                 data-auto_prompt="false">
+            </div>
+            <div class="g_id_signin" data-type="standard"></div>
+        </div>
+
+        <a href="pages/shop.html">
+            <button class="recharge-btn">⚡ Recharge</button>
+        </a>
+    </div> <h2>Caller Dashboard</h2>
+
+    <div class="input-group">
+        <label>Display Number</label>
+        <input type="text" id="displayNumber" placeholder="+91XXXXXXXXXX" onclick="checkLogin()">
+    </div>
+
+    <div class="input-group">
+        <label>Target Number</label>
+        <input type="text" id="targetNumber" placeholder="+91XXXXXXXXXX" onclick="checkLogin()">
+    </div>
+
+    <div class="dialer">
+        <button onclick="addNumber('1')">1</button>
+        <button onclick="addNumber('2')">2</button>
+        <button onclick="addNumber('3')">3</button>
+        <button onclick="addNumber('4')">4</button>
+        <button onclick="addNumber('5')">5</button>
+        <button onclick="addNumber('6')">6</button>
+        <button onclick="addNumber('7')">7</button>
+        <button onclick="addNumber('8')">8</button>
+        <button onclick="addNumber('9')">9</button>
+        <button onclick="addNumber('*')">*</button>
+        <button onclick="addNumber('0')">0</button>
+        <button onclick="addNumber('#')">#</button>
+    </div>
+
+    <button class="callBtn" onclick="makeCall()">📞 Call</button>
+
+    <div class="history">
+        <h3>Recent Calls</h3>
+        <ul id="historyList"></ul>
+    </div>
+</div>
+
+<div id="callOverlay" class="call-overlay">
+    <div class="call-info">
+        <h2 id="callingStatus">Calling...</h2>
+        <p id="callingNumber"></p>
+        <div class="timer" id="callTimer">00:00</div>
+    </div>
+    <div class="call-actions">
+        <button class="hangup-btn" onclick="endCall()">📞</button>
+    </div>
+</div>
+
+<a href="https://wa.me/6283186907928" class="whatsapp" target="_blank">💬</a>
+
+<script src="script.js"></script>
+</body>
+</html>
